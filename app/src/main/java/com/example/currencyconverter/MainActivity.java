@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        text_view = (TextView) findViewById(R.id.tv_output);
     }
 
 
@@ -32,15 +33,21 @@ public class MainActivity extends AppCompatActivity {
 
         input = (TextView) findViewById(R.id.input_number);
 
-        if (radio_button.getText() == "USD"){
-
-        }else if (radio_button.getText() == "LBP"){
-
+        int output;
+        if (radio_button.getText().equals("USD")){
+            output = input.getText() / 22000;
+            text_view.setText(output);
+        }else if (radio_button.getText().equals("LBP")){
+            output = Integer.parseInt(String.valueOf(input)) * 22000;
+            text_view.setText(output);
         } else{
             String message = "Please choose a currency!";
             Toast toast = Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG);
             toast.show();
         }
+
+
+
 
 
 
