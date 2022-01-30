@@ -25,30 +25,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    public void Convert (View v){
+    public void Convert(View v) {
         radio_group = (RadioGroup) findViewById(R.id.radioGroup);
         radio_button = (RadioButton) findViewById(radio_group.getCheckedRadioButtonId());
 
         input = findViewById(R.id.input_number);
 
         Double output;
-        if (radio_button.getText().equals("USD")){
+        if (radio_button.getText().equals("USD")) {
             output = Double.parseDouble(input.getText().toString()) / 22000;
             text_view.setText("USD " + output);
-        }else if (radio_button.getText().equals("LBP")){
+        } else if (radio_button.getText().equals("LBP")) {
             output = Double.parseDouble(input.getText().toString()) * 22000;
             text_view.setText("LBP " + output);
-        } else{
+        } else {
             String message = "Please choose a currency!";
-            Toast toast = Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
             toast.show();
         }
-
-
-
-
-
-
     }
 }
