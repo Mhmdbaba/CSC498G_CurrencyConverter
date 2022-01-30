@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RadioGroup radio_group;
     private RadioButton radio_button;
-    private TextView input;
+    private EditText input;
     private TextView text_view;
 
     @Override
@@ -31,15 +31,15 @@ public class MainActivity extends AppCompatActivity {
         int selected_Id = radio_group.getCheckedRadioButtonId();
         radio_button = (RadioButton) findViewById(selected_Id);
 
-        input = (TextView) findViewById(R.id.input_number);
+        input = findViewById(R.id.input_number);
 
         int output;
         if (radio_button.getText().equals("USD")){
-            output = input.getText() / 22000;
-            text_view.setText(output);
+            output =(int) Double.parseDouble(input.getText().toString()) / 22000;
+            text_view.setText("USD " + output);
         }else if (radio_button.getText().equals("LBP")){
-            output = Integer.parseInt(String.valueOf(input)) * 22000;
-            text_view.setText(output);
+            output =(int) Double.parseDouble(input.getText().toString()) * 22000;
+            text_view.setText("LBP " + output);
         } else{
             String message = "Please choose a currency!";
             Toast toast = Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG);
