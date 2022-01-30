@@ -28,17 +28,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void Convert (View v){
         radio_group = (RadioGroup) findViewById(R.id.radioGroup);
-        int selected_Id = radio_group.getCheckedRadioButtonId();
-        radio_button = (RadioButton) findViewById(selected_Id);
+        radio_button = (RadioButton) findViewById(radio_group.getCheckedRadioButtonId());
 
         input = findViewById(R.id.input_number);
 
-        int output;
+        Double output;
         if (radio_button.getText().equals("USD")){
-            output =(int) Double.parseDouble(input.getText().toString()) / 22000;
+            output = Double.parseDouble(input.getText().toString()) / 22000;
             text_view.setText("USD " + output);
         }else if (radio_button.getText().equals("LBP")){
-            output =(int) Double.parseDouble(input.getText().toString()) * 22000;
+            output = Double.parseDouble(input.getText().toString()) * 22000;
             text_view.setText("LBP " + output);
         } else{
             String message = "Please choose a currency!";
